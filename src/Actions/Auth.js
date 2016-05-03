@@ -1,4 +1,4 @@
-import { routeActions } from 'redux-simple-router';
+import { push } from 'react-router-redux';
 
 /**
  * Attempts to login the user with the given credentials.
@@ -26,7 +26,7 @@ export function attemptLogin (email, password) {
 export function loginSuccess (token, email) {
   return function (dispatch) {
     dispatch({ type: 'AUTH_SUCCESS', token, email });
-    dispatch(routeActions.push('/'));
+    dispatch(push('/'));
   };
 }
 
@@ -51,6 +51,6 @@ export function loginFailed (err) {
 export function logout () {
   return function (dispatch) {
     dispatch({ type: 'AUTH_LOGOUT' });
-    dispatch(routeActions.push('/login'));
+    dispatch(push('/login'));
   };
 }

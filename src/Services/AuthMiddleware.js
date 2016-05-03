@@ -7,10 +7,10 @@
  * @return {Function}
  */
 export function isLoggedIn (store) {
-  return (nextState, replaceState) => {
+  return (nextState, replace) => {
    let state = store.getState();
    if ( ! state.auth.token) {
-     replaceState(nextState, '/login');
+     replace(nextState, '/login');
    }
   };
 }
@@ -24,10 +24,10 @@ export function isLoggedIn (store) {
  * @return {Function}
  */
  export function isGuest (store) {
-   return (nextState, replaceState) => {
+   return (nextState, replace) => {
     let state = store.getState();
     if (state.auth.token) {
-      replaceState(nextState, '/');
+      replace(nextState, '/');
     }
    };
  }
